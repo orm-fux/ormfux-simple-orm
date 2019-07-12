@@ -1,13 +1,126 @@
-dependencies {
-	def h2 = 'com.h2database:h2:1.4.196'
+apply plugin: 'eclipse'
+apply plugin: 'java-library'
+apply plugin: 'maven'
+apply plugin: 'signing'
 
-	/* required for usage, not api */
-	implementation 'com.github.orm-fux:ormfux-common-utils:1.5'
-	
-	/* dependencies that are only required based on project usage */
-	compileOnly 'com.github.orm-fux:ormfux-simple-di:1.5'
-	compileOnly h2
-	
-	/* test dependencies */
-	testImplementation h2
+/* Java version */
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+/* Identifier */
+group = 'com.github.orm-fux'
+archivesBaseName = 'ormfux-simple-orm'
+version = '1.5'
+
+/* dependencies */
+dependencies {
+    def h2 = 'com.h2database:h2:1.4.196'
+    
+    /* required for usage, not api */
+    implementation 'com.github.orm-fux:ormfux-common-utils:1.5'
+    implementation 'org.apache.commons:commons-lang3:3.9'
+    
+    /* dependencies that are only required based on project usage */
+    compileOnly 'com.github.orm-fux:ormfux-simple-di:1.5'
+    compileOnly h2
+    
+    /* test dependencies */
+    testImplementation h2
+    testImplementation 'junit:junit:4.11'
+    testImplementation 'org.assertj:assertj-core:3.12.0'
+}
+
+/* unit test resources folder */
+task copyTestResources(type: Copy) {
+    from "${projectDir}/src/test/resources"
+    into "${buildDir}/classes/java/test"
+}
+
+processTestResources.dependsOn copyTestResources
+
+/* test logging */
+test {
+    testLogging {
+        exceptionFormat = 'full'
+    }
+}
+
+        
+/* repos */
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+/* Maven artifact creation */
+signing {
+    sign configurations.archives
+}
+
+task javadocJar(type: Jar) {
+    from javadoc
+    classifier = 'javadoc'
+}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allJava
+    classifier = 'sources'
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+conf2ScopeMappings.mappings[project.configurations.implementation].scope = 'compile'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+            
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+            
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+            
+            pom.project {
+                name project.name
+                description 'A small library for simple ORM access to databases'
+                packaging 'jar'
+                url 'https://github.com/orm-fux/ormfux-simple-orm'
+                
+                scm {
+                    connection 'scm:git:https://github.com/orm-fux/ormfux-simple-orm.git'
+                    developerConnection 'scm:git:git@github.com:orm-fux/ormfux-simple-orm.git'
+                    url 'https://github.com/orm-fux/ormfux-simple-orm.git'
+                }
+                
+                licenses {
+                    license {
+                        name 'The Unlicense'
+                        url 'http://unlicense.org/'
+                        distribution 'repo'
+                    }
+                }
+                
+                developers {
+                    developer {
+                        id 'orm-fux'
+                        name 'FM'
+                    }
+                }
+            }
+        }
+    }
+}
+
+if (JavaVersion.current().isJava8Compatible()) {
+    allprojects {
+        tasks.withType(Javadoc) {
+            options.addStringOption('Xdoclint:none', '-quiet')
+        }
+    }
 }
