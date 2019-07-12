@@ -4,6 +4,16 @@ This is a small library for ORM and native query access to relational databases.
 supposed to be used in small, single-user applications, where full-fledged ORM access with the 
 means of Hibernate or EclipseLink would be overkill.
 
+Available on [MavenCentral](https://search.maven.org/search?q=g:com.github.orm-fux%20AND%20a:ormfux-simple-orm):
+
+```xml
+<dependency>
+  <groupId>com.github.orm-fux</groupId>
+  <artifactId>ormfux-simple-orm</artifactId>
+  <version>1.5</version>
+</dependency>
+```
+
 # Usage
 
 _Please also have a look at the unit tests. They cover a great deal of what is possible!_
