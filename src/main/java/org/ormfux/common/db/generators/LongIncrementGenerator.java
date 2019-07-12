@@ -1,6 +1,6 @@
 package org.ormfux.common.db.generators;
 
-import static org.ormfux.common.utils.NullableUtils.isNull;
+import static com.github.ormfux.common.utils.NullableUtils.isNull;
 
 /**
  * A generator that increments a value of type "long" by {@code 1}.

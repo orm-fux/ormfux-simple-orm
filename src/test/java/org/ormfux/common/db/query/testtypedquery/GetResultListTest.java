@@ -10,7 +10,8 @@ import org.junit.Test;
 import org.ormfux.common.db.exception.NonMatchedParamException;
 import org.ormfux.common.db.exception.SQLException;
 import org.ormfux.common.db.query.TypedQuery;
-import org.ormfux.common.utils.ListUtils;
+
+import com.github.ormfux.common.utils.ListUtils;
 
 public class GetResultListTest extends AbstractTypedQueryTest {
     

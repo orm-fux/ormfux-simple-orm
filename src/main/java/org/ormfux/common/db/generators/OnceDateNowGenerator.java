@@ -2,8 +2,8 @@ package org.ormfux.common.db.generators;
 
 import java.util.Date;
 
-import org.ormfux.common.utils.DateUtils;
-import org.ormfux.common.utils.NullableUtils;
+import com.github.ormfux.common.utils.DateUtils;
+import com.github.ormfux.common.utils.NullableUtils;
 
 /**
  * A generator that creates a date representing the current date and time.

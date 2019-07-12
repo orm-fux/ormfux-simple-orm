@@ -9,7 +9,8 @@ import java.util.Map;
 import org.junit.Test;
 import org.ormfux.common.db.exception.DuplicateParamException;
 import org.ormfux.common.db.query.AbstractQuery;
-import org.ormfux.common.utils.object.Objects;
+
+import com.github.ormfux.common.utils.object.Objects;
 
 public class AddParameterTest extends AbstractAbstractQueryTest {
     

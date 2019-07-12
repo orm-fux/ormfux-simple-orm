@@ -20,8 +20,9 @@ import org.ormfux.common.db.annotation.Id;
 import org.ormfux.common.db.annotation.Version;
 import org.ormfux.common.db.generators.RandomIdGenerator;
 import org.ormfux.common.db.query.TypedQuery;
-import org.ormfux.common.utils.DateUtils;
-import org.ormfux.common.utils.object.Objects;
+
+import com.github.ormfux.common.utils.DateUtils;
+import com.github.ormfux.common.utils.object.Objects;
 
 public class MappedPropertyTest extends AbstractAnnotationTest {
     

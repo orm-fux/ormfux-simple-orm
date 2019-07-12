@@ -6,8 +6,9 @@ import static org.junit.Assert.assertTrue;
 import java.util.Date;
 
 import org.junit.Test;
-import org.ormfux.common.utils.DateUtils;
-import org.ormfux.common.utils.object.Objects;
+
+import com.github.ormfux.common.utils.DateUtils;
+import com.github.ormfux.common.utils.object.Objects;
 
 public class OnceNowGeneratorTest {
     

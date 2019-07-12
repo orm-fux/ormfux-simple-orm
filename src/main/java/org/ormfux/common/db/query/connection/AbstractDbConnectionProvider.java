@@ -6,7 +6,8 @@ import java.util.Collections;
 import java.util.List;
 
 import org.ormfux.common.db.exception.SQLException;
-import org.ormfux.common.utils.NullableUtils;
+
+import com.github.ormfux.common.utils.NullableUtils;
 
 /**
  * Base for database connection providers.

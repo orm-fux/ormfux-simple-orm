@@ -1,12 +1,13 @@
 package org.ormfux.common.db.query;
 
-import static org.ormfux.common.utils.NullableUtils.nonNull;
+import static com.github.ormfux.common.utils.NullableUtils.nonNull;
 
 import java.util.Arrays;
 
 import org.ormfux.common.db.query.connection.AbstractDbConnectionProvider;
 import org.ormfux.common.db.query.connection.DbConnectionProvider;
-import org.ormfux.common.utils.reflection.ClassUtils;
+
+import com.github.ormfux.common.utils.reflection.ClassUtils;
 
 /**
  * A manager, which allows to execute queries on a database.

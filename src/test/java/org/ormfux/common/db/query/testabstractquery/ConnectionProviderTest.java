@@ -6,7 +6,8 @@ import java.lang.reflect.Field;
 
 import org.junit.Test;
 import org.ormfux.common.db.query.AbstractQuery;
-import org.ormfux.common.utils.object.Objects;
+
+import com.github.ormfux.common.utils.object.Objects;
 
 public class ConnectionProviderTest extends AbstractAbstractQueryTest {
     

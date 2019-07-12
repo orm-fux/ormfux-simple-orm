@@ -1,6 +1,6 @@
 package org.ormfux.common.db.query;
 
-import static org.ormfux.common.utils.NullableUtils.isNull;
+import static com.github.ormfux.common.utils.NullableUtils.isNull;
 
 import java.lang.reflect.Field;
 import java.sql.Connection;
@@ -21,9 +21,10 @@ import org.ormfux.common.db.exception.NonUniqueResultException;
 import org.ormfux.common.db.exception.SQLException;
 import org.ormfux.common.db.query.QueryResult.QueryResultRow;
 import org.ormfux.common.db.query.connection.DbConnectionProvider;
-import org.ormfux.common.utils.ListUtils;
-import org.ormfux.common.utils.reflection.ClassUtils;
-import org.ormfux.common.utils.reflection.PropertyUtils;
+
+import com.github.ormfux.common.utils.ListUtils;
+import com.github.ormfux.common.utils.reflection.ClassUtils;
+import com.github.ormfux.common.utils.reflection.PropertyUtils;
 
 /**
  * A simple implementation for an executable SQL query, which can define parameters with parameter names.

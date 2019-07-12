@@ -6,7 +6,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 import org.ormfux.common.db.query.TypedQuery;
-import org.ormfux.common.utils.ListUtils;
+
+import com.github.ormfux.common.utils.ListUtils;
 
 public class AddToCollectionTest extends AbstractCollectionOfEntitiesTest {
     

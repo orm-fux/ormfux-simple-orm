@@ -1,9 +1,9 @@
 package org.ormfux.common.db.query;
 
-import static org.ormfux.common.utils.NullableUtils.isEmpty;
-import static org.ormfux.common.utils.NullableUtils.isNull;
-import static org.ormfux.common.utils.NullableUtils.nonNull;
-import static org.ormfux.common.utils.NullableUtils.not;
+import static com.github.ormfux.common.utils.NullableUtils.isEmpty;
+import static com.github.ormfux.common.utils.NullableUtils.isNull;
+import static com.github.ormfux.common.utils.NullableUtils.nonNull;
+import static com.github.ormfux.common.utils.NullableUtils.not;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
@@ -28,9 +28,10 @@ import org.ormfux.common.db.generators.NoValueGenerator;
 import org.ormfux.common.db.generators.ValueGenerator;
 import org.ormfux.common.db.query.QueryResult.QueryResultRow;
 import org.ormfux.common.db.query.connection.DbConnectionProvider;
-import org.ormfux.common.utils.NullableUtils;
-import org.ormfux.common.utils.reflection.ClassUtils;
-import org.ormfux.common.utils.reflection.PropertyUtils;
+
+import com.github.ormfux.common.utils.NullableUtils;
+import com.github.ormfux.common.utils.reflection.ClassUtils;
+import com.github.ormfux.common.utils.reflection.PropertyUtils;
 
 /**
  * Query returning the results as instances of entities.

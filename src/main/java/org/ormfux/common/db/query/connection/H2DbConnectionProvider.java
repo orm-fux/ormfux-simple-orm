@@ -1,6 +1,6 @@
 package org.ormfux.common.db.query.connection;
 
-import static org.ormfux.common.utils.NullableUtils.isNull;
+import static com.github.ormfux.common.utils.NullableUtils.isNull;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -13,7 +13,8 @@ import java.text.SimpleDateFormat;
 import org.h2.engine.Constants;
 import org.h2.store.fs.FileUtils;
 import org.ormfux.common.db.exception.SQLException;
-import org.ormfux.common.utils.DateUtils;
+
+import com.github.ormfux.common.utils.DateUtils;
 
 /**
  * Provider for H2 database connections.
